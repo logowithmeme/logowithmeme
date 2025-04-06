@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>logo_with_meme</title>
+  <style>
+    * { margin: 0; padding: 0; font-family: sans-serif; box-sizing: border-box; }
+    body { background: #000; color: #fff; }
+
+    .slide1, .slide2 {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide1 {
+      display: flex;
+      background-image: url('https://sigmawire.net/i/04/NRVzih.webp');
+      position: relative;
+    }
+
+    .slide1 .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+
+    .slide1 .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .slide1 h1 {
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px #ff007f;
+    }
+
+    .slide1 p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .slide1 button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 1rem;
+      background: #ff007f;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff007f;
+    }
+
+    .slide2 {
+      background: #000;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .slide2.active {
+      display: flex;
+    }
+
+    .slide2 h2 {
+      font-size: 2rem;
+      color: #ff007f;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #ff007f;
+    }
+
+    .slide2 img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px #ff007f;
+    }
+
+    .slide2 a {
+      text-decoration: none;
+      padding: 10px 20px;
+      background: #ff007f;
+      color: #fff;
+      border-radius: 5px;
+      margin: 5px;
+      box-shadow: 0 0 10px #ff007f;
+    }
+
+    /* Floating icons top-right */
+    .bot-icon {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 999;
+    }
+
+    .bot-icon img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 6px #ff007f);
+      transition: transform 0.3s ease;
+    }
+
+    .bot-icon img:hover {
+      transform: scale(1.1);
+    }
+
+    .bot-icon .icon-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🔊 Moan Sound -->
+<audio id="moanSound" preload="auto">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_efbaad2df3.mp3?filename=moan-female-85785.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🤖 Bot + WhatsApp + Insta -->
+<div class="bot-icon">
+  <div class="icon-stack">
+    <!-- Bot -->
+    <a href="https://t.me/ATTAGADISANGAMU_bot" target="_blank" title="Add this bot">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Bot Icon" />
+    </a>
+    <!-- WhatsApp -->
+    <a href="https://whatsapp.com/channel/0029Vb5CALN0LKZ6tajkrK1i" target="_blank" title="WhatsApp Channel">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" />
+    </a>
+    <!-- Instagram -->
+    <a href="https://jhadekartik.github.io/logo_with_meme/" target="_blank" title="Instagram / Link">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon" />
+    </a>
+  </div>
+</div>
+
+<!-- Slide 1 (18+ entry) -->
+<div class="slide1" id="slide1">
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>logo_with_meme</h1>
+    <p>Are you 18+? Strictly for adults only 🔞</p>
+    <button id="enterBtn">Enter</button>
+    <button id="leaveBtn">Leave</button>
+  </div>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide2" id="slide2">
+  <h2>Welcome Inside 🔥</h2>
+  <img src="https://sigmawire.net/i/04/megEqX.webp" alt="Adult Content" />
+  <a href="https://t.me/+5-6RRuotR1JmOGVl" target="_blank">Join Telegram</a>
+  <a href="https://t.me/+Wnk_WDVlINk3NTU1" target="_blank">Backup Channel</a>
+</div>
+
+<!-- Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const enterBtn = document.getElementById("enterBtn");
+    const leaveBtn = document.getElementById("leaveBtn");
+    const slide1 = document.getElementById("slide1");
+    const slide2 = document.getElementById("slide2");
+    const moanSound = document.getElementById("moanSound");
+
+    enterBtn.addEventListener("click", () => {
+      slide1.style.display = "none";
+      slide2.classList.add("active");
+      moanSound.play().catch(err => console.log("Audio error", err));
+    });
+
+    leaveBtn.addEventListener("click", () => {
+      alert("You must be 18+ to continue.");
+      window.location.href = "https://google.com";
+    });
+  });
+</script>
+
+</body>
+</html>
